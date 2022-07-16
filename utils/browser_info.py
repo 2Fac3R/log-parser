@@ -7,5 +7,5 @@ def get_browser_info_from_useragent(http_user_agent):
         response = httpagentparser.detect(http_user_agent)
     except KeyError:
         """If useragent is a web spider."""
-        return "Unknown"
+        pass
     return response

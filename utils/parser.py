@@ -20,8 +20,10 @@ def do_stuff(input_file_name, output_file_name, pattern):
                 user_agent = fields[6]
                 country_name = get_ip_geolocation(ip)['country_name']
                 state_prov = get_ip_geolocation(ip)['state_prov']
-                device_type = get_browser_info_from_useragent(user_agent)
-                browser = get_browser_info_from_useragent(user_agent)
+                device_type = get_browser_info_from_useragent(user_agent)[
+                    'platform']['name']
+                browser = get_browser_info_from_useragent(user_agent)[
+                    'browser']['name']
                 geolocation = f"[{country_name}, {state_prov}]"
                 device = f"[{device_type}, {browser}]"
                 output_file.write(row.rstrip("\n") +
